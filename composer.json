@@ -5,6 +5,11 @@
     "require": {
         "j4mie/idiorm": "^1.5"
     },
+    "autoload": {
+        "psr-0": { 
+            "CRUD\\" : "lib/"
+        } 
+    },
     "license": "MIT",
     "authors": [
         {
