@@ -1,5 +1,5 @@
 {
-    "name": "arjunkomath/crud",
+    "name": "arjunkomath/CRUD",
     "description": "A generic CRUD class",
     "type": "library",
     "require": {
