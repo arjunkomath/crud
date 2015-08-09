@@ -3,7 +3,7 @@ namespace CRUD;
 
 use CRUD\Views\Read;
 
-class CRUD {
+class Admin {
 
     public function __construct($config = null) {    
     }
