@@ -1,2 +1,4 @@
 # CRUD
-A Generic PHP CRUD
+Generic PHP CRUD Library
+
+This is a work in progress!
