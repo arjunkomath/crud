@@ -1,7 +1,9 @@
 <?php
 namespace CRUD;
 
+use CRUD\Views\Table;
 use CRUD\Views\Read;
+use CRUD\Views\Create;
 
 class Admin {
 
@@ -17,14 +19,30 @@ class Admin {
     }
 
     public function create($table, $ignore_keys = null) {
-        echo $table;
-        $fields = \ORM::for_table($table)->raw_query('DESCRIBE '.$table)->find_array();
-        foreach ($fields as $key => $field) {
-            if(in_array($field['Field'], $ignore_keys))
-                unset($fields[$key]);
+        if($_POST) {
+            $params = $_POST;
+            $insert = \ORM::for_table($table)->create();
+            \ORM::get_db()->beginTransaction();
+            try {
+                foreach ($params as $key => $value) {
+                    $insert->$key = $value;
+                }
+                $insert->save();
+                \ORM::get_db()->commit();
+            } catch (Exception $e) {
+                \ORM::get_db()->rollBack();
+                throw $e;
+            }
+            $this->view = new Create('done');
+        } else {
+            $fields = \ORM::for_table($table)->raw_query('DESCRIBE '.$table)->find_array();
+            foreach ($fields as $key => $field) {
+                if(in_array($field['Field'], $ignore_keys))
+                    unset($fields[$key]);
+            }
+            $data['fields'] = $fields;
+            $this->view = new Create('create', $data);
         }
-        $data['fields'] = $fields;
-        $this->view = new Create('create', $data);
     }
 
     public function read($table, $id) {
