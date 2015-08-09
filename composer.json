@@ -1,6 +1,6 @@
 {
     "name": "arjunkomath/crud",
-    "description": "A generic CRUD class",
+    "description": "Generic PHP CRUD Library",
     "type": "library",
     "require": {
         "j4mie/idiorm": "^1.5"
