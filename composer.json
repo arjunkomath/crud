@@ -1,0 +1,15 @@
+{
+    "name": "arjunkomath/crud",
+    "description": "A generic CRUD class",
+    "type": "library",
+    "require": {
+        "j4mie/idiorm": "^1.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arjun Komath",
+            "email": "arjunkomath@gmail.com"
+        }
+    ]
+}
