@@ -1,22 +1,23 @@
 # PHP CRUD
 [![Latest Stable Version](https://poser.pugx.org/arjunkomath/crud/v/stable)](https://packagist.org/packages/arjunkomath/crud) [![Total Downloads](https://poser.pugx.org/arjunkomath/crud/downloads)](https://packagist.org/packages/arjunkomath/crud) [![Latest Unstable Version](https://poser.pugx.org/arjunkomath/crud/v/unstable)](https://packagist.org/packages/arjunkomath/crud) [![License](https://poser.pugx.org/arjunkomath/crud/license)](https://packagist.org/packages/arjunkomath/crud)
+[![Documentation Status](https://readthedocs.org/projects/phpcrud/badge/?version=latest)](https://readthedocs.org/projects/phpcrud/?badge=latest)
 
 A simple generic PHP CRUD library
 ***
-*Please note that this project is still in beta, it's not complete. There are more features to come.*
+*Please note that this project is still in *beta*, it's not complete. There are more features to come.*
 
-##Features
+#Features
 - Perform Create/Read/Update/Delete for you in just one line. :)
 - In case, you don't feel like writing the views for all those, it will automatically generate the views also, and perform the corresponding operation.
 - All views are generated using Bootstrap CSS.
 
-##Requirements
+#Requirements
 - [j4mie/idiorm] (https://github.com/j4mie/idiorm)
 - MySQL
 - And of course, PHP
 
-##Installation
-###Packagist
+#Installation
+##Packagist
 This library is available through Packagist with the vendor and package identifier of `arjunkomath/crud`
 Please see the Packagist [documentation](https://packagist.org/) for further information.
 
@@ -30,10 +31,11 @@ ORM::configure('username', 'database_user');
 ORM::configure('password', 'top_secret');
 ```
 
-##Basic CRUD Class
+#Code
+##Basic CRUD
 Initialize the class
 ```php
-$this->crud = new CRUD\Admin();
+$this->crud = new CRUD\CRUD();
 ```
 It has three functions as follows:
 
@@ -73,3 +75,53 @@ This function can be used to find a row by field name and value.
 $result = $this->crud->find('table_name', 'field_name', 'value');
 ```
 It will return an array if the row exsists.
+
+##CRUD and Views
+Initialize the class
+```php
+$this->crud = new CRUD\Admin();
+```
+It has four functions as follows:
+
+###Table
+This function can be used to read data and display it in table format.
+To display an entire table:
+```php
+$this->crud->table('table_name');
+```
+It has an optional paramater, that lets you hide any unwanted fields. You can pass an array of field names, and it will automatically skip those fields from the view.
+```php
+$this->crud->table('table_name', array ('field_name'));
+```
+
+###Read
+This function can be used to read data from a row and display it in table format.
+```php
+$this->crud->table('table_name', 'id');
+```
+It has an optional paramater, that lets you hide any unwanted fields. You can pass an array of field names, and it will automatically skip those fields from the view.
+```php
+$this->crud->table('table_name', 'id', array ('field_name'));
+```
+
+###Create
+This function can be used to input data from the user and save it to database, the CRUD class will automatically generate the views and save the entry to database.
+```php
+$this->crud->create('table_name');
+```
+It has an optional paramater, that lets you hide any unwanted fields. You can pass an array of field names, and it will automatically skip those fields from the view. Note that no default values can be passed to these fields as of now, although it will be implemented in future.
+```php
+$this->crud->create('table_name', array ('field_name'));
+```
+
+###Update
+This function can be used to update an exsisting entry in the table, the CRUD class will automatically generate the views and update the entry in database.
+```php
+$this->crud->update('table_name', 'id');
+```
+It has an optional paramater, that lets you hide any unwanted fields. You can pass an array of field names, and it will automatically skip those fields from the view. Note that by default it will show the exsisting data saved in the row.
+```php
+$this->crud->create('table_name', 'id', array ('field_name'));
+```
+
+Thank you!
