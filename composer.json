@@ -10,7 +10,11 @@
             "CRUD\\" : "lib/"
         } 
     },
-    "license": "ISC",
+    "license": [
+        "BSD-2-Clause",
+        "BSD-3-Clause",
+        "BSD-4-Clause"
+    ],
     "authors": [
         {
             "name": "Arjun Komath",
