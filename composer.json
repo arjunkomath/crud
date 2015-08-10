@@ -10,7 +10,7 @@
             "CRUD\\" : "lib/"
         } 
     },
-    "license": "MIT",
+    "license": "ISC",
     "authors": [
         {
             "name": "Arjun Komath",
