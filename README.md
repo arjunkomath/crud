@@ -11,6 +11,9 @@ A simple generic PHP CRUD library
 - In case, you don't feel like writing the views for all those, it will automatically generate the views also, and perform the corresponding operation.
 - All views are generated using Bootstrap CSS.
 
+#Documentation
+The documentation is hosted on Read the Docs: [phpcrud.rtfd.org](http://phpcrud.readthedocs.org/en/latest/)
+
 #Requirements
 - [j4mie/idiorm] (https://github.com/j4mie/idiorm)
 - MySQL
