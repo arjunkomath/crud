@@ -4,7 +4,7 @@ namespace CRUD\Views;
 
 class Create {
 
-    private $data = array();
+    private $data = [];
     private $render = FALSE;
 
     public function __construct($template, $data = null)
