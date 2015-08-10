@@ -24,7 +24,8 @@ class Create {
     }
 
     public function __destruct() {
-        extract($this->data);
+        if($this->data)
+            extract($this->data);
         include($this->render);
     }
 

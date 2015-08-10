@@ -27,9 +27,9 @@ if(in_array($key, $filter)) continue; ?>
 </table>
 </div>
 
-<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+<!-- <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
 <script>
 $(document).ready(function(){
-        $('#read_<?= $table ?>').DataTable();
+        //$('#read_<?= $table ?>').DataTable();
 });
-</script>
+</script> -->

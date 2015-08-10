@@ -1,6 +1,8 @@
-<div class="container">
-<h1>yay</h1>
-<?php 
-    var_dump($rows);
-?>
-</div>
+<table class="table">
+<?php foreach ($row as $key => $value) { ?>
+<tr>
+    <td><b><?= ucfirst(str_replace('_',' ',$key)) ?></b></td>
+    <td><?= $value ?></td>
+</tr>
+<?php } ?>
+</table>

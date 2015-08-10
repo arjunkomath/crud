@@ -2,7 +2,7 @@
 
 namespace CRUD\Views;
 
-class Read {
+class Update {
 
     private $data = [];
     private $render = FALSE;
