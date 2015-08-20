@@ -1,5 +1,5 @@
 # PHP CRUD
-[![Latest Stable Version](https://poser.pugx.org/arjunkomath/crud/v/stable)](https://packagist.org/packages/arjunkomath/crud) [![Total Downloads](https://poser.pugx.org/arjunkomath/crud/downloads)](https://packagist.org/packages/arjunkomath/crud) [![Latest Unstable Version](https://poser.pugx.org/arjunkomath/crud/v/unstable)](https://packagist.org/packages/arjunkomath/crud) [![License](https://poser.pugx.org/arjunkomath/crud/license)](https://packagist.org/packages/arjunkomath/crud)
+[![Latest Stable Version](https://poser.pugx.org/arjunkomath/crud/v/stable)](https://packagist.org/packages/arjunkomath/crud) [![Total Downloads](https://poser.pugx.org/arjunkomath/crud/downloads)](https://packagist.org/packages/arjunkomath/crud) [![Latest Unstable Version](https://poser.pugx.org/arjunkomath/crud/v/unstable)](https://packagist.org/packages/arjunkomath/crud)
 [![Documentation Status](https://readthedocs.org/projects/phpcrud/badge/?version=latest)](https://readthedocs.org/projects/phpcrud/?badge=latest)
 
 A simple generic PHP CRUD library
@@ -10,6 +10,9 @@ A simple generic PHP CRUD library
 - Perform Create/Read/Update/Delete for you in just one line. :)
 - In case, you don't feel like writing the views for all those, it will automatically generate the views also, and perform the corresponding operation.
 - All views are generated using Bootstrap CSS.
+
+#Documentation
+The documentation is hosted on Read the Docs: [phpcrud.rtfd.org](http://phpcrud.readthedocs.org/en/latest/)
 
 #Requirements
 - [j4mie/idiorm] (https://github.com/j4mie/idiorm)
@@ -124,4 +127,4 @@ It has an optional paramater, that lets you hide any unwanted fields. You can pa
 $this->crud->create('table_name', 'id', array ('field_name'));
 ```
 
-Thank you!
+Thank you.
