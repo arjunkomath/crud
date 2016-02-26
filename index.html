@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>PHP CRUD by arjunkomath</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PHP CRUD</h1>
+      <h2 class="project-tagline">Generic PHP CRUD Library</h2>
+      <a href="https://github.com/arjunkomath/crud" class="btn">View on GitHub</a>
+      <a href="https://github.com/arjunkomath/crud/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/arjunkomath/crud/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <p><a href="https://packagist.org/packages/arjunkomath/crud"><img src="https://poser.pugx.org/arjunkomath/crud/v/stable" alt="Latest Stable Version"></a> <a href="https://packagist.org/packages/arjunkomath/crud"><img src="https://poser.pugx.org/arjunkomath/crud/downloads" alt="Total Downloads"></a> <a href="https://packagist.org/packages/arjunkomath/crud"><img src="https://poser.pugx.org/arjunkomath/crud/v/unstable" alt="Latest Unstable Version"></a>
+<a href="https://readthedocs.org/projects/phpcrud/?badge=latest"><img src="https://readthedocs.org/projects/phpcrud/badge/?version=latest" alt="Documentation Status"></a></p>
+
+<p>A simple generic PHP CRUD library</p>
+
+<hr>
+
+<p><em>Please note that this project is still in *beta</em>, it's not complete. There are more features to come.*</p>
+
+<h1>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h1>
+
+<ul>
+<li>Perform Create/Read/Update/Delete for you in just one line. :)</li>
+<li>In case, you don't feel like writing the views for all those, it will automatically generate the views also, and perform the corresponding operation.</li>
+<li>All views are generated using Bootstrap CSS.</li>
+</ul>
+
+<h1>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Documentation</h1>
+
+<p>The documentation is hosted on Read the Docs: <a href="http://phpcrud.readthedocs.org/en/latest/">phpcrud.rtfd.org</a></p>
+
+<h1>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirements</h1>
+
+<ul>
+<li><a href="https://github.com/j4mie/idiorm">j4mie/idiorm</a></li>
+<li>MySQL</li>
+<li>And of course, PHP</li>
+</ul>
+
+<h1>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h1>
+
+<h2>
+<a id="packagist" class="anchor" href="#packagist" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Packagist</h2>
+
+<p>This library is available through Packagist with the vendor and package identifier of <code>arjunkomath/crud</code>
+Please see the Packagist <a href="https://packagist.org/">documentation</a> for further information.</p>
+
+<h2>
+<a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuration</h2>
+
+<p>Configue idiorm, you can read more about it <a href="http://idiorm.readthedocs.org/en/latest/configuration.html">here</a>. You'll have to add the followng lines so that the CRUD class can access the database.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-pse">&lt;?php</span><span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c1">ORM</span><span class="pl-k">::</span>configure(<span class="pl-s"><span class="pl-pds">'</span>mysql:host=localhost;dbname=my_database<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1"><span class="pl-c1">ORM</span><span class="pl-k">::</span>configure(<span class="pl-s"><span class="pl-pds">'</span>username<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>database_user<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1"><span class="pl-c1">ORM</span><span class="pl-k">::</span>configure(<span class="pl-s"><span class="pl-pds">'</span>password<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>top_secret<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<h1>
+<a id="code" class="anchor" href="#code" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Code</h1>
+
+<h2>
+<a id="basic-crud" class="anchor" href="#basic-crud" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic CRUD</h2>
+
+<p>Initialize the class</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">crud</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">CRUD\</span><span class="pl-c1">CRUD</span>();</span></pre></div>
+
+<p>It has three functions as follows:</p>
+
+<h3>
+<a id="read" class="anchor" href="#read" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Read</h3>
+
+<p>This function can be used to read data, either the entire table data or you can read a row by its primary key.
+To read an entire table:</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$result</span> <span class="pl-k">=</span> <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">crud</span><span class="pl-k">-&gt;</span>read(<span class="pl-s"><span class="pl-pds">'</span>table_name<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<p>To read a row from a table by its primiary key:</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$result</span> <span class="pl-k">=</span> <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">crud</span><span class="pl-k">-&gt;</span>read(<span class="pl-s"><span class="pl-pds">'</span>table_name<span class="pl-pds">'</span></span>,<span class="pl-s"><span class="pl-pds">'</span>id<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<p><em>All results are returned as array.</em></p>
+
+<h3>
+<a id="save" class="anchor" href="#save" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Save</h3>
+
+<p>This function can be used to save data to table, you can both create a new row or update an exsising entry.
+To create an entry: Specify the table name and then pass an array of arguments in such a format that array key represents the field name and value represents the field value. It will return the newly inserted id of the row.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$result</span> <span class="pl-k">=</span> <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">crud</span><span class="pl-k">-&gt;</span>save(<span class="pl-s"><span class="pl-pds">'</span>table_name<span class="pl-pds">'</span></span>, <span class="pl-k">array</span> (<span class="pl-s"><span class="pl-pds">"</span>column1<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>value1<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>column2<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>value2<span class="pl-pds">"</span></span>));</span></pre></div>
+
+<p>To update an entry identified by its primiary key: You pass an additional paremeter <code>id</code> that is the primary key value to the row to be updated. It will return the id of the row.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$result</span> <span class="pl-k">=</span> <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">crud</span><span class="pl-k">-&gt;</span>save(<span class="pl-s"><span class="pl-pds">'</span>table_name<span class="pl-pds">'</span></span>, <span class="pl-k">array</span> (<span class="pl-s"><span class="pl-pds">"</span>column1<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>value1<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>column2<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>value2<span class="pl-pds">"</span></span>), <span class="pl-s"><span class="pl-pds">'</span>id<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<h3>
+<a id="delete" class="anchor" href="#delete" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Delete</h3>
+
+<p>This function can be used to delete an entry from table.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$result</span> <span class="pl-k">=</span> <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">crud</span><span class="pl-k">-&gt;</span>delete(<span class="pl-s"><span class="pl-pds">'</span>table_name<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>id<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<p>It will return <code>true</code>.</p>
+
+<h3>
+<a id="find" class="anchor" href="#find" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Find</h3>
+
+<p>This function can be used to find a row by field name and value.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$result</span> <span class="pl-k">=</span> <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">crud</span><span class="pl-k">-&gt;</span>find(<span class="pl-s"><span class="pl-pds">'</span>table_name<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>field_name<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>value<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<p>It will return an array if the row exsists.</p>
+
+<h2>
+<a id="crud-and-views" class="anchor" href="#crud-and-views" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CRUD and Views</h2>
+
+<p>Initialize the class</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">crud</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">CRUD\</span><span class="pl-c1">Admin</span>();</span></pre></div>
+
+<p>It has four functions as follows:</p>
+
+<h3>
+<a id="table" class="anchor" href="#table" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table</h3>
+
+<p>This function can be used to read data and display it in table format.
+To display an entire table:</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">crud</span><span class="pl-k">-&gt;</span>table(<span class="pl-s"><span class="pl-pds">'</span>table_name<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<p>It has an optional paramater, that lets you hide any unwanted fields. You can pass an array of field names, and it will automatically skip those fields from the view.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">crud</span><span class="pl-k">-&gt;</span>table(<span class="pl-s"><span class="pl-pds">'</span>table_name<span class="pl-pds">'</span></span>, <span class="pl-k">array</span> (<span class="pl-s"><span class="pl-pds">'</span>field_name<span class="pl-pds">'</span></span>));</span></pre></div>
+
+<h3>
+<a id="read-1" class="anchor" href="#read-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Read</h3>
+
+<p>This function can be used to read data from a row and display it in table format.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">crud</span><span class="pl-k">-&gt;</span>table(<span class="pl-s"><span class="pl-pds">'</span>table_name<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>id<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<p>It has an optional paramater, that lets you hide any unwanted fields. You can pass an array of field names, and it will automatically skip those fields from the view.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">crud</span><span class="pl-k">-&gt;</span>table(<span class="pl-s"><span class="pl-pds">'</span>table_name<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>id<span class="pl-pds">'</span></span>, <span class="pl-k">array</span> (<span class="pl-s"><span class="pl-pds">'</span>field_name<span class="pl-pds">'</span></span>));</span></pre></div>
+
+<h3>
+<a id="create" class="anchor" href="#create" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create</h3>
+
+<p>This function can be used to input data from the user and save it to database, the CRUD class will automatically generate the views and save the entry to database.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">crud</span><span class="pl-k">-&gt;</span>create(<span class="pl-s"><span class="pl-pds">'</span>table_name<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<p>It has an optional paramater, that lets you hide any unwanted fields. You can pass an array of field names, and it will automatically skip those fields from the view. Note that no default values can be passed to these fields as of now, although it will be implemented in future.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">crud</span><span class="pl-k">-&gt;</span>create(<span class="pl-s"><span class="pl-pds">'</span>table_name<span class="pl-pds">'</span></span>, <span class="pl-k">array</span> (<span class="pl-s"><span class="pl-pds">'</span>field_name<span class="pl-pds">'</span></span>));</span></pre></div>
+
+<h3>
+<a id="update" class="anchor" href="#update" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Update</h3>
+
+<p>This function can be used to update an exsisting entry in the table, the CRUD class will automatically generate the views and update the entry in database.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">crud</span><span class="pl-k">-&gt;</span>update(<span class="pl-s"><span class="pl-pds">'</span>table_name<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>id<span class="pl-pds">'</span></span>);</span></pre></div>
+
+<p>It has an optional paramater, that lets you hide any unwanted fields. You can pass an array of field names, and it will automatically skip those fields from the view. Note that by default it will show the exsisting data saved in the row.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">crud</span><span class="pl-k">-&gt;</span>create(<span class="pl-s"><span class="pl-pds">'</span>table_name<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>id<span class="pl-pds">'</span></span>, <span class="pl-k">array</span> (<span class="pl-s"><span class="pl-pds">'</span>field_name<span class="pl-pds">'</span></span>));</span></pre></div>
+
+<p>Thank you.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/arjunkomath/crud">PHP CRUD</a> is maintained by <a href="https://github.com/arjunkomath">arjunkomath</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
